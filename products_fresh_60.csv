@@ -1,0 +1,61 @@
+name,description,price,category,subcategory,inStock,image
+"Apple iPhone 15 Pro","Titanium build with A17 Pro chip and advanced camera system.",134900,Electronics,Smartphone,true,https://images.unsplash.com/photo-1696446701796-da61225697cc?q=80&w=800
+"Samsung Galaxy S24 Ultra","AI-powered smartphone with 200MP camera and S Pen support.",129999,Electronics,Smartphone,true,https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=800
+"Sony WH-1000XM5","Industry-leading noise canceling wireless headphones with crystal-clear sound.",29990,Electronics,Audio,true,https://images.unsplash.com/photo-1546435770-a3e426ff473a?q=80&w=800
+"MacBook Air M3","Strikingly thin and fast with 13-inch Liquid Retina display.",114900,Electronics,Laptop,true,https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800
+"Dell XPS 13","Compact high-performance laptop with 4-sided InfinityEdge display.",125000,Electronics,Laptop,false,https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=800
+"Logitech MX Master 3S","Universal office mouse with ergonomic design and silent clicks.",10995,Electronics,Accessories,true,https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=800
+"Keychron K2 V2","Wireless mechanical keyboard with hot-swappable switches.",7500,Electronics,Accessories,true,https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=800
+"ASUS ROG Strix G16","Powerful gaming laptop with RTX 40-series graphics.",145000,Electronics,Laptop,true,https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=800
+"iPad Pro 12.9 M2","The ultimate iPad experience with the world's most advanced mobile display.",119900,Electronics,Tablet,true,https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800
+"Nintendo Switch OLED","Vibrant 7-inch OLED screen and enhanced audio for portable gaming.",32000,Electronics,Gaming,true,https://images.unsplash.com/photo-1578303372704-147ae51ec85c?q=80&w=800
+"Levi's 511 Slim Jeans","Modern slim-fit jeans with room to move and a classic look.",4500,Fashion,Men,true,https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=800
+"Nike Air Max 270","Sneakers with Nike's biggest heel Air unit for a super-soft ride.",12995,Fashion,Footwear,true,https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800
+"Adidas Ultraboost Light","The lightest Ultraboost ever made for maximum energy return.",16999,Fashion,Footwear,true,https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=800
+"Ray-Ban Wayfarer","Iconic sunglasses with a classic black frame and G-15 lenses.",10500,Fashion,Accessories,true,https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800
+"H&M Oversized Hoodie","Soft sweatshirt fabric with a relaxed fit and dropped shoulders.",2499,Fashion,Men,true,https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800
+"Zara Cotton Trench Coat","Double-breasted coat with wide lapels and long sleeves.",8999,Fashion,Women,true,https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800
+"Fossil Gen 6 Smartwatch","Faster performance and wellness features in a classic design.",24995,Fashion,Watches,false,https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800
+"Tommy Hilfiger Polo Shirt","Classic-fit polo shirt in breathable cotton piqué.",4999,Fashion,Men,true,https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800
+"Puma Velocity Nitro 2","Neutral running shoe for all distances with responsive cushioning.",10999,Fashion,Footwear,true,https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=800
+"Casio G-Shock GW-B5600","Ultra-durable digital watch with solar power and Bluetooth.",11995,Fashion,Watches,true,https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=800
+"Nespresso Vertuo Pop","Compact coffee machine for versatile brewing at the touch of a button.",14999,Home,Coffee,true,https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800
+"IKEA MALM Desk","Simple and clean design that looks good from every side.",12500,Home,Furniture,true,https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=800
+"Philips Air Fryer XL","Healthy frying with Rapid Air technology and XL capacity.",16995,Home,Kitchen,true,https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=800
+"Dyson V15 Detect","Most powerful, intelligent cordless vacuum with laser illumination.",65900,Home,Living,true,https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=800
+"Nutribullet Pro 900","High-speed blender to make nutrient-packed smoothies in seconds.",8995,Home,Kitchen,true,https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=800
+"Sony 65-inch 4K OLED TV","Immersive visuals and sound with Cognitive Processor XR.",245000,Home,Living,true,https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=800
+"Herman Miller Aeron","The gold standard for ergonomic office chairs.",155000,Home,Furniture,false,https://images.unsplash.com/photo-1505797149-43b00fe2e071?q=80&w=800
+"KitchenAid Artisan Mixer","The iconic stand mixer for professional baking results.",48995,Home,Kitchen,true,https://images.unsplash.com/photo-1594385208974-2e75f9d8a502?q=80&w=800
+"Le Creuset Dutch Oven","Enameled cast iron cookware for superior heat distribution.",28000,Home,Kitchen,true,https://images.unsplash.com/photo-1584281722572-87f54c9c1f6b?q=80&w=800
+"Molekule Air Mini+","Air purifier that destroys pollutants using PECO technology.",39999,Home,Living,true,https://images.unsplash.com/photo-1517404212328-3300b32b137f?q=80&w=800
+"Bose SoundLink Revolve+","Deep, loud, and immersive 360-degree wireless speaker.",24500,Electronics,Audio,true,https://images.unsplash.com/photo-1608156639585-b3a032ef9689?q=80&w=800
+"Fujifilm X-T5","Mirrorless camera with 40MP sensor and internal stabilized body.",169999,Electronics,Camera,true,https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800
+"Kindle Paperwhite","Waterproof e-reader with a 6.8-inch display and adjustable warm light.",14999,Electronics,Gadget,true,https://images.unsplash.com/photo-1491843330267-326db3c82d56?q=80&w=800
+"Canon EOS R6 Mark II","Fast and versatile full-frame mirrorless camera.",240000,Electronics,Camera,true,https://images.unsplash.com/photo-1510127034890-ba27508e9f1c?q=80&w=800
+"Elgato Stream Deck MK.2","Studio controller with 15 macro keys for live production.",14500,Electronics,Accessories,true,https://images.unsplash.com/photo-1593642532744-d377ab507dc8?q=80&w=800
+"Rolex Submariner Date","Professional divers' watch with a Cerachrom bezel and Date display.",850000,Fashion,Watches,false,https://images.unsplash.com/photo-1587836374828-4dbaba94ee0e?q=80&w=800
+"North Face Nuptse Jacket","Iconic boxy down jacket with deep baffles and a stowable hood.",24999,Fashion,Men,true,https://images.unsplash.com/photo-1605646146608-f4cc5e656d0d?q=80&w=800
+"Lululemon Align Pant","High-rise yoga pants in buttery-soft Nulu fabric.",9500,Fashion,Women,true,https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=800
+"Dr. Martens 1460 Boot","The original 8-eye boot made with durable smooth leather.",16999,Fashion,Footwear,true,https://images.unsplash.com/photo-1614594805320-e6a5549d7f95?q=80&w=800
+"Gucci GG Marmont Bag","Matelassé leather shoulder bag with antique gold-toned hardware.",185000,Fashion,Accessories,true,https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800
+"Stanley Quencher H2.0","Tumbler with vacuum insulation for hot and cold drinks.",4500,Home,Living,true,https://images.unsplash.com/photo-1589365278144-c9e705f843ba?q=80&w=800
+"Breville Oracle Touch","Fully automated espresso machine with touch screen control.",195000,Home,Coffee,true,https://images.unsplash.com/photo-1520974950291-22ce9065006a?q=80&w=800
+"YETI Tundra 45 Cooler","Heavy-duty cooler built for extreme outdoor conditions.",35000,Home,Living,true,https://images.unsplash.com/photo-1543326168-5421df608351?q=80&w=800
+"August Wi-Fi Smart Lock","Retrofit smart lock that attaches to your existing deadbolt.",18999,Home,Living,true,https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800
+"Fellow Stagg EKG Kettle","Electric kettle with precise temperature control for pour-over coffee.",16500,Home,Coffee,true,https://images.unsplash.com/photo-1594911772125-07dad7a2bc55?q=80&w=800
+"Samsung Q990C Soundbar","Ultimate cinematic experience with 11.1.4 channel sound.",99900,Home,Living,true,https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800
+"Ooni Koda 12 Pizza Oven","Gas-powered outdoor pizza oven for authentic stone-baked pizza.",38500,Home,Kitchen,true,https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800
+"Marshall Stanmore II","Classic Bluetooth speaker with balanced and powerful audio.",31999,Electronics,Audio,true,https://images.unsplash.com/photo-1589003077984-894e133dabab?q=80&w=800
+"Razer DeathAdder V3 Pro","Ultra-lightweight wireless gaming mouse with incredible speed.",14995,Electronics,Accessories,true,https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=800
+"Steam Deck","All-in-one portable PC gaming console.",45000,Electronics,Gaming,true,https://images.unsplash.com/photo-1605898960710-90fb0599540c?q=80&w=800
+"Theragun PRO","Deep muscle treatment trusted by professional athletes.",54900,Health,Fitness,true,https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800
+"Peloton Bike+","Immersive cardio experience with auto-resistance and large screen.",215000,Health,Fitness,true,https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800
+"Whoop 4.0 Tracker","Continuous health monitoring for performance and recovery.",21000,Health,Fitness,true,https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800
+"Fitbit Charge 6","Advanced health and fitness tracker with built-in GPS.",14999,Health,Fitness,true,https://images.unsplash.com/photo-1557166983-5939644443a0?q=80&w=800
+"Oura Ring Gen 3","Sophisticated smart ring for tracking sleep and activity.",32000,Health,Fitness,false,https://images.unsplash.com/photo-1634621404172-4ca347df230f?q=80&w=800
+"Hydro Flask 32 oz","Wide mouth bottle with Flex Cap for everyday hydration.",3499,Health,Fitness,true,https://images.unsplash.com/photo-1602143399827-721493035e5d?q=80&w=800
+"Bowflex SelectTech 552","Adjustable dumbbells that replace 15 sets of weights.",35000,Health,Fitness,true,https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?q=80&w=800
+"Yoga Design Lab Mat","Luxury eco-friendly yoga mat with micro-fiber towel surface.",6500,Health,Fitness,true,https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=800
+"Garmin Fenix 7 Pro","Built-in solar charging for long battery life during epic adventures.",85000,Health,Fitness,true,https://images.unsplash.com/photo-1523395211542-74beed737732?q=80&w=800
+"Hyperice Hypervolt 2","Quiet and lightweight handheld percussion massage device.",25900,Health,Fitness,true,https://images.unsplash.com/photo-1591343395902-1adcb454c2e4?q=80&w=800

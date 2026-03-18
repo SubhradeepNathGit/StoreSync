@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* Premium Thin Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f172a; /* matches slate-900 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e293b; /* matches slate-800 */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0f172a transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom DatePicker Styling to match UI */
+.task-date-popper {
+  z-index: 9999 !important;
+}
+
+.premium-calendar {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  font-family: inherit;
+  background-color: white;
+  padding-bottom: 8px;
+}
+
+.premium-calendar .react-datepicker__header {
+  background-color: transparent;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 0;
+}
+
+.premium-calendar .react-datepicker__day-names {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.premium-calendar .react-datepicker__day-name {
+  color: #0f172a;
+  font-weight: 500;
+  width: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.premium-calendar .react-datepicker__day {
+  color: #475569;
+  font-weight: 500;
+  width: 2.25rem;
+  line-height: 2.25rem;
+  border-radius: 8px;
+  margin: 0.1rem;
+  transition: all 0.2s;
+}
+
+.premium-calendar .react-datepicker__day:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.premium-calendar .react-datepicker__day--selected {
+  background-color: #bae6fd !important;
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+.premium-calendar .react-datepicker__day--keyboard-selected {
+  background-color: transparent;
+  color: #475569;
+}
+
+.premium-calendar .react-datepicker__day--disabled {
+  color: #cbd5e1;
+}
+
+.premium-calendar .react-datepicker__day--outside-month {
+  color: #cbd5e1;
+}
+
+.premium-calendar .react-datepicker__triangle {
+  display: block;
+}

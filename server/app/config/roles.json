@@ -1,0 +1,60 @@
+{
+    "roles": [
+        {
+            "name": "super_admin",
+            "permissions": [
+                "create_product",
+                "read_product",
+                "update_product",
+                "delete_product",
+                "restore_product",
+                "permanently_delete_product",
+                "view_tasks",
+                "create_task",
+                "update_task",
+                "delete_task",
+                "view_platform_metrics"
+            ]
+        },
+        {
+            "name": "owner",
+            "permissions": [
+                "create_product",
+                "read_product",
+                "update_product",
+                "delete_product",
+                "restore_product",
+                "permanently_delete_product",
+                "view_tasks",
+                "create_task",
+                "update_task",
+                "delete_task"
+            ]
+        },
+        {
+            "name": "manager",
+            "permissions": [
+                "create_product",
+                "read_product",
+                "update_product",
+                "delete_product",
+                "restore_product",
+                "view_tasks",
+                "create_task",
+                "update_task"
+            ]
+        },
+        {
+            "name": "employee",
+            "permissions": [
+                "create_product",
+                "read_product",
+                "update_product",
+                "delete_product",
+                "restore_product",
+                "view_tasks",
+                "update_task_status"
+            ]
+        }
+    ]
+}
