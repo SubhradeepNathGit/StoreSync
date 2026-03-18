@@ -1,7 +1,7 @@
 <h1 align="center">
-  <br>
+  <!-- <br>
   <img src="https://img.icons8.com/color/96/000000/shop.png" alt="StoreSync" width="80">
-  <br>
+  <br> -->
   StoreSync: Enterprise Multi-Tenant Inventory Ecosystem
   <br>
 </h1>
