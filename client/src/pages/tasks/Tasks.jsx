@@ -698,26 +698,25 @@ const Tasks = () => {
                                                                         </button>
                                                                     )}
 
-                                                                    {}
-                                                                    {isManagerOrOwner && (
-                                                                        <button
-                                                                            onClick={() => { setSelectedTask(task); setShowTaskModal(true); }}
-                                                                            className="w-8 h-8 flex items-center justify-center bg-slate-50 text-slate-600 rounded-lg hover:bg-slate-900 hover:text-white transition-all border border-slate-200"
-                                                                            title="Edit Task"
-                                                                        >
-                                                                            <Edit2 className="w-3.5 h-3.5" />
-                                                                        </button>
-                                                                    )}
+                                                                    {/* Edit/Delete only for owner or manager who assigned the task */}
+                                                                    {(user?.role === 'owner' || (user?.role === 'manager' && task.assignedBy?._id === (user?.id || user?._id))) && (
+                                                                        <>
+                                                                            <button
+                                                                                onClick={() => { setSelectedTask(task); setShowTaskModal(true); }}
+                                                                                className="w-8 h-8 flex items-center justify-center bg-slate-50 text-slate-600 rounded-lg hover:bg-slate-900 hover:text-white transition-all border border-slate-200"
+                                                                                title="Edit Task"
+                                                                            >
+                                                                                <Edit2 className="w-3.5 h-3.5" />
+                                                                            </button>
 
-                                                                    {}
-                                                                    {isManagerOrOwner && (
-                                                                        <button
-                                                                            onClick={() => { setTaskToDelete(task); setIsDeleteModalOpen(true); }}
-                                                                            className="w-8 h-8 flex items-center justify-center bg-red-50 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all border border-red-100"
-                                                                            title="Delete Task"
-                                                                        >
-                                                                            <Trash2 className="w-3.5 h-3.5" />
-                                                                        </button>
+                                                                            <button
+                                                                                onClick={() => { setTaskToDelete(task); setIsDeleteModalOpen(true); }}
+                                                                                className="w-8 h-8 flex items-center justify-center bg-red-50 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all border border-red-100"
+                                                                                title="Delete Task"
+                                                                            >
+                                                                                <Trash2 className="w-3.5 h-3.5" />
+                                                                            </button>
+                                                                        </>
                                                                     )}
                                                                 </div>
                                                             </td>

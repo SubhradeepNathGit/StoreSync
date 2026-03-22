@@ -158,10 +158,29 @@ exports.updateTask = async (taskId, updateData, userId, userRole, userShopId) =>
         if (updateData.status && !['Completed', 'Pending'].includes(updateData.status)) {
             throw new ErrorResponse("Invalid status update", 400);
         }
-    } else if (userRole === "manager" || userRole === "owner") {
-        
+    } else if (userRole === "owner") {
         if (task.shopId.toString() !== userShopId.toString()) {
             throw new ErrorResponse("Not authorized to update tasks in another shop", 403);
+        }
+    } else if (userRole === "manager") {
+        if (task.shopId.toString() !== userShopId.toString()) {
+            throw new ErrorResponse("Not authorized to update tasks in another shop", 403);
+        }
+        
+        // Manager can fully update tasks they assigned
+        if (task.assignedBy.toString() !== userId.toString()) {
+            // For tasks not assigned by them, check if they are the assignee
+            if (task.assignedTo.toString() === userId.toString()) {
+                const allowedUpdates = ["status"];
+                const actualUpdates = Object.keys(updateData);
+                const isUnauthorizedUpdate = actualUpdates.some(key => !allowedUpdates.includes(key));
+                
+                if (isUnauthorizedUpdate) {
+                    throw new ErrorResponse("Managers can only update status for tasks assigned to them by others", 403);
+                }
+            } else {
+                throw new ErrorResponse("Managers can only edit tasks they assigned", 403);
+            }
         }
     } else if (!isSuperOrAdmin) {
         throw new ErrorResponse("Not authorized to update tasks", 403);
@@ -193,10 +212,18 @@ exports.deleteTask = async (taskId, userId, userRole, userShopId) => {
     const isManager = userRole === "manager";
 
     if (!isSuperOrAdmin) {
-        if ((isManager || isOwner) && task.shopId.toString() !== userShopId.toString()) {
-             throw new ErrorResponse("Not authorized to delete tasks in another shop", 403);
-        }
-        if (!isManager && !isOwner) {
+        if (isOwner) {
+            if (task.shopId.toString() !== userShopId.toString()) {
+                throw new ErrorResponse("Not authorized to delete tasks in another shop", 403);
+            }
+        } else if (isManager) {
+            if (task.shopId.toString() !== userShopId.toString()) {
+                throw new ErrorResponse("Not authorized to delete tasks in another shop", 403);
+            }
+            if (task.assignedBy.toString() !== userId.toString()) {
+                throw new ErrorResponse("Managers can only delete tasks they assigned", 403);
+            }
+        } else {
             throw new ErrorResponse("Not authorized to delete tasks", 403);
         }
     }
