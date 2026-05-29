@@ -24,16 +24,26 @@ exports.register = async (userData) => {
     }
 
     let shop;
+    const trimmedShopName = shopName.trim();
     if (role === "owner") {
-        
+        const escapedName = trimmedShopName.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const existingShop = await Shop.findOne({
+            name: { $regex: new RegExp(`^${escapedName}$`, 'i') }
+        });
+        if (existingShop) {
+            throw new ErrorResponse("A shop with this name already registered. Please choose a unique name.", 400);
+        }
+
         shop = await Shop.create({
-            name: shopName,
+            name: trimmedShopName,
             isOnboarded: true 
         });
         emitToSuperAdmin('shopCreated', shop);
     } else {
-        
-        shop = await Shop.findOne({ name: shopName });
+        const escapedName = trimmedShopName.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        shop = await Shop.findOne({
+            name: { $regex: new RegExp(`^${escapedName}$`, 'i') }
+        });
         if (!shop) {
             throw new ErrorResponse("Shop not found. Manager must join an existing shop.", 404);
         }

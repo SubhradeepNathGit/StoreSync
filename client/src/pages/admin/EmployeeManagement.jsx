@@ -327,17 +327,6 @@ const EmployeeManagement = () => {
                                                         </td>
                                                         <td className="px-6 py-4 text-right">
                                                             <div className="flex items-center gap-2 justify-end">
-                                                                <button
-                                                                    onClick={() => {
-                                                                        setSelectedEmployeeForProfile(employee);
-                                                                        setShowProfileModal(true);
-                                                                    }}
-                                                                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg text-xs font-bold transition-colors"
-                                                                >
-                                                                    <Eye className="w-3.5 h-3.5" />
-                                                                    View Profile
-                                                                </button>
-
                                                                 {(user?.role === 'owner' || user?.role === 'manager') && (
                                                                     <button
                                                                         onClick={() => {

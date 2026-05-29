@@ -257,46 +257,36 @@ const ManagerManagement = () => {
                                                             {manager.joinedAt ? new Date(manager.joinedAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Not joined yet'}
                                                         </td>
                                                         <td className="px-6 py-4 text-right">
-                                                                    <div className="flex items-center gap-2 justify-end">
+                                                            <div className="flex items-center gap-2 justify-end">
+                                                                {user?.role === 'owner' && (
+                                                                    <div className="flex items-center gap-2">
                                                                         <button
                                                                             onClick={() => {
-                                                                                setSelectedManagerForProfile(manager);
-                                                                                setShowProfileModal(true);
+                                                                                setSelectedManagerForTask({
+                                                                                    _id: manager._id,
+                                                                                    name: manager.name,
+                                                                                    role: manager.role || 'manager'
+                                                                                });
+                                                                                setShowTaskModal(true);
                                                                             }}
-                                                                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg text-xs font-bold transition-colors"
+                                                                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded-lg text-xs font-bold transition-colors"
                                                                         >
-                                                                            <Eye className="w-3.5 h-3.5" />
-                                                                            View Profile
+                                                                            <ClipboardList className="w-3.5 h-3.5" />
+                                                                            Assign Task
                                                                         </button>
-                                                                        {user?.role === 'owner' && (
-                                                                            <div className="flex items-center gap-2">
-                                                                                <button
-                                                                                    onClick={() => {
-                                                                                        setSelectedManagerForTask({
-                                                                                            _id: manager._id,
-                                                                                            name: manager.name,
-                                                                                            role: manager.role || 'manager'
-                                                                                        });
-                                                                                        setShowTaskModal(true);
-                                                                                    }}
-                                                                                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded-lg text-xs font-bold transition-colors"
-                                                                                >
-                                                                                    <ClipboardList className="w-3.5 h-3.5" />
-                                                                                    Assign Task
-                                                                                </button>
 
-                                                                                {!manager.isActive && (
-                                                                                    <button
-                                                                                        onClick={() => handleDeleteManager(manager._id)}
-                                                                                        className="inline-flex items-center justify-center w-8 h-8 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors"
-                                                                                        title="Delete Manager"
-                                                                                    >
-                                                                                        <Trash2 className="w-4 h-4" />
-                                                                                    </button>
-                                                                                )}
-                                                                            </div>
+                                                                        {!manager.isActive && (
+                                                                            <button
+                                                                                onClick={() => handleDeleteManager(manager._id)}
+                                                                                className="inline-flex items-center justify-center w-8 h-8 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors"
+                                                                                title="Delete Manager"
+                                                                            >
+                                                                                <Trash2 className="w-4 h-4" />
+                                                                            </button>
                                                                         )}
                                                                     </div>
+                                                                )}
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 ))
