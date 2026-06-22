@@ -36,14 +36,14 @@
   <img src="./client/public/Banner-8.png" height="350">
 </p>
 <p align="center">
+  <img src="./client/public/Banner-15.png" width="32%">
   <img src="./client/public/Banner-9.jpg" width="32%">
   <img src="./client/public/Banner-10.jpg" width="32%">
-  <img src="./client/public/Banner-11.png" width="32%">
 </p>
 <p align="center">
+  <img src="./client/public/Banner-11.png" width="32%">
   <img src="./client/public/Banner-12.png" width="32%">
   <img src="./client/public/Banner-13.png" width="32%">
-  <img src="./client/public/Banner-15.png" width="32%">
 </p>
 
 ---
@@ -102,13 +102,68 @@ The platform handles everything from the moment a user registers a shop, to mana
 
 ### 6. Complex Data Aggregation & Analytics
 - **Super Admin Analytics**: The Super Admin dashboard relies on complex MongoDB aggregation pipelines to calculate platform-wide metrics. It visualizes user growth trends over time, counts active versus restricted shops, and calculates the total combined stock valuation across the entire SaaS platform.
-- **Shop Owner Analytics**: Shop owners get access to localized analytics. Their dashboard charts out their specific category distributions, tracks daily employee logins, and highlights low-stock items that need immediate attention.
+- **Shop Owner Dashboard**: Shop owners get access to localized analytics. Their dashboard charts out their specific category distributions, tracks daily employee logins, and highlights low-stock items that need immediate attention.
+
+### 7. User Profiles & Activity Auditing
+- **Profile Management**: Users can manage their personal profiles, update their credentials, and upload profile avatars (which are securely managed and hosted via Cloudinary).
+- **Comprehensive Audit Logging**: To maintain strict security compliance, the platform automatically records sensitive user actions and data modifications (such as logging in, updating settings, or creating records). These historical activity logs can be reviewed to track exactly what actions were taken by specific employees over time.
 
 ---
 
 ## System Architecture
 
-Here is a deeper look at the engineering decisions behind the data models and frontend structure.
+Here is a deeper look at the engineering decisions behind the data models, frontend structure, and the overall system flow.
+
+### Architecture Diagram
+
+```mermaid
+flowchart TD
+    %% Interface Layer
+    UI[Frontend Client\nReact, Vite, Zustand]
+    
+    %% Network Layer
+    Axios[Axios Instance\nToken Interceptors & Error Handling]
+    
+    %% Backend Layer
+    subgraph Server [Backend System - Node.js / Express]
+        AuthCtrl[Authentication & Security]
+        TenantCtrl[Tenant & Shop Operations]
+        InventoryCtrl[Inventory & Assets Processing]
+        TaskCtrl[Task Delegation]
+        AuditCtrl[Profile & Audit Logs]
+    end
+    
+    %% Database Layer
+    subgraph DB [Database - MongoDB]
+        Users[(Users)]
+        Shops[(Shops)]
+        Products[(Products & Categories)]
+        Tasks[(Tasks & Audits)]
+    end
+    
+    %% External Cloud Services
+    Cloudinary[Cloudinary\nImage Hosting & GC]
+    SMTP[SMTP Server\nAutomated Emails]
+    WebSockets[Socket.io\nLive Bi-directional Sync]
+
+    %% Connections
+    UI <-->|REST API| Axios
+    UI <-->|WebSocket Events| WebSockets
+    Axios <-->|HTTP Requests| Server
+    WebSockets <--> TaskCtrl
+    
+    AuthCtrl <--> Users
+    TenantCtrl <--> Shops
+    InventoryCtrl <--> Products
+    TaskCtrl <--> Tasks
+    AuditCtrl <--> Tasks
+    AuditCtrl <--> Users
+    
+    InventoryCtrl -->|Upload Product Media| Cloudinary
+    AuditCtrl -->|Upload Avatars| Cloudinary
+    AuthCtrl -->|Dispatch OTPs & Alerts| SMTP
+    TaskCtrl -->|Dispatch Task Alerts| SMTP
+```
 
 ### Database Schema Design
 - **`User`**: The central identity model. It handles all authentication details, role definitions, bcrypt hashed passwords, and tracks whether the user has completed their OTP verification.
