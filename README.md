@@ -42,7 +42,8 @@
 </p>
 <p align="center">
   <img src="./client/public/Banner-13.png" width="32%">
-  <img src="./client/public/Banner-filter.png" width="32%">
+  <img src="./client/public/Banner-14.png" width="32%">
+  <img src="./client/public/Banner-15.png" width="32%">
 </p>
 
 ---
