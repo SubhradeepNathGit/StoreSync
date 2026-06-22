@@ -1,164 +1,283 @@
-<h1 align="center">
-  StoreSync: Enterprise Multi-Tenant Inventory Ecosystem
-</h1>
+<div align="center">
 
-<h4 align="center">A production-grade, highly-secured SaaS boilerplate built on the bleeding-edge MERN stack for global inventory management, complex RBAC, real-time task delegation, and advanced data visualization.</h4>
+  <h1>📦 StoreSync</h1>
+  <h3>Enterprise Multi-Tenant Inventory Ecosystem</h3>
+  
+  <p>A production-grade, highly-secured SaaS boilerplate built on the bleeding-edge MERN stack for global inventory management, complex RBAC, real-time task delegation, and advanced data visualization.</p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white" alt="Node.js">
+    <img src="https://img.shields.io/badge/Express.js-5.x-000000?logo=express&logoColor=white" alt="Express">
+    <img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black" alt="React">
+    <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white" alt="MongoDB">
+    <img src="https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white" alt="Vite">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-4.1-38B2AC?logo=tailwind-css&logoColor=white" alt="Tailwind">
+    <img src="https://img.shields.io/badge/Socket.io-Realtime-010101?logo=socketdotio&logoColor=white" alt="Socket.io">
+  </p>
+</div>
+
+---
+
+## 🎨 Production UI Grid
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Stack-MERN-1CCB7E.svg?style=for-the-badge&logo=mongodb" alt="MERN Stack">
-  <img src="https://img.shields.io/badge/React-19-61DAFB.svg?style=for-the-badge&logo=react" alt="React 19">
-  <img src="https://img.shields.io/badge/Express-5.x-000000.svg?style=for-the-badge&logo=express" alt="Express 5">
-  <img src="https://img.shields.io/badge/Security-Dual%20JWT%20%2B%20OTP-critical.svg?style=for-the-badge&logo=jsonwebtokens" alt="Security">
+  <img src="./client/public/Banner-1.jpg" width="32%">
+  <img src="./client/public/Banner-2.jpg" width="32%">
+  <img src="./client/public/Banner-3.jpg" width="32%">
+</p>
+<p align="center">
+  <img src="./client/public/Banner-4.png" width="32%">
+  <img src="./client/public/Banner-5.png" width="32%">
+  <img src="./client/public/Banner-6.png" width="32%">
+</p>
+<p align="center">
+  <img src="./client/public/Banner-7.png" width="32%">
+  <img src="./client/public/Banner-8.png" width="32%">
+  <img src="./client/public/Banner-9.jpg" width="32%">
+</p>
+<p align="center">
+  <img src="./client/public/Banner-10.jpg" width="32%">
+  <img src="./client/public/Banner-11.png" width="32%">
+  <img src="./client/public/Banner-12.png" width="32%">
+</p>
+<p align="center">
+  <img src="./client/public/Banner-13.png" width="32%">
+  <img src="./client/public/Banner-filter.png" width="32%">
 </p>
 
-## 📖 Executive Summary for Recruiters & Engineering Managers
+---
+
+## 📑 Table of Contents
+- [Executive Summary](#-executive-summary)
+- [Complete Platform Workflow & Features](#-complete-platform-workflow--features)
+- [System Architecture](#-system-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Screenshots](#-project-screenshots)
+- [Getting Started](#-getting-started)
+- [Environment Variables](#-environment-variables)
+- [API Overview](#-api-overview)
+- [Future Roadmaps](#-future-roadmaps)
+- [Author](#-author)
+
+---
+
+## 📖 Executive Summary
 
 **StoreSync** is not a standard CRUD application; it is a meticulously architected **Multi-Tenant SaaS solution** built to demonstrate enterprise-level full-stack engineering. It handles isolated shop ecosystems (tenants) under a centralized platform overseen by Super Admins. 
 
-This repository was purposefully designed to showcase advanced capabilities in **Backend Architecture**, **Frontend State Management**, and **System Security**. The codebase meticulously implements:
-- **Dual-Token Authentication** (short-lived access + HTTP-only refresh).
-- **Socket.io** for real-time bi-directional events (live task delegation).
-- **Comprehensive RBAC** (Super Admin → Shop Owner → Manager → Employee).
-- **Cloudinary Asset Pipelines** combined with robust background garbage collection.
-- **Large Dataset Handling** via CSV parsing streams.
+This repository was purposefully designed to showcase advanced capabilities in **Backend Architecture**, **Frontend State Management**, and **System Security**. It implements industry-standard practices suitable for large-scale production deployments.
 
 ---
 
-## 🏗️ Deep Dive: Codebase Architecture & File Level Analysis
+## 🚀 Complete Platform Workflow & Features
 
-To fully understand the scale of this project, here is a detailed breakdown of the exact engineering standards implemented across the Client and Server environments.
+StoreSync encompasses an end-to-end SaaS lifecycle for inventory and team management. Here is a granular breakdown of every operational feature and the intelligent workflows driving them:
 
-### 1. Database Schema & Data Modeling (`server/app/models`)
-The data layer uses Mongoose with strict schema validations, virtual fields, and query middleware:
-- **`User.js`**: Centralized identity model. Manages roles, hashed passwords (bcrypt), and account verification states (OTP).
-- **`Shop.js`**: The core multi-tenant entity. Each user/product/task belongs to a specific Shop, ensuring logical data isolation.
-- **`Product.js`**: Handles massive enterprise inventory. Incorporates smart "Soft Delete" logic (flagging items for trash bins rather than dropping them to retain referential integrity).
-- **`Task.js`**: Powers the real-time project management aspect. Tracks task assignment between managers and employees. 
-- **`Category.js` & `Subcategory.js`**: Hierarchical taxonomies for deep inventory sorting.
-- **`AuditLog.js`**: Security compliance tracker. Automatically records sensitive data modifications and user actions historically.
+### 1. Advanced Authentication & Security Workflows
+- **Registration & Verification**: Users register as Shop Owners. The system immediately sends a **One-Time Password (OTP) via Email** to verify their identity before they can access the platform.
+- **Secure Login**: Employs Dual-Token Architecture. A short-lived Access Token is kept in memory, while a Refresh Token is stored securely in an `HTTPOnly`, `SameSite=Strict` cookie, entirely immune to XSS attacks.
+- **Password Recovery**: Users who forget their passwords can request a reset. The system sends a **Password Reset OTP via Email**. Upon verifying the OTP, the user can securely set a new password.
+- **API Hardening**: All routes are protected by `helmet` headers, and brute-force attacks are mitigated using `express-rate-limit`. NoSQL injection attempts are inherently sanitized through Mongoose strict schemas.
 
-### 2. Business Logic Controllers (`server/app/controllers`)
-Using "Fat Models, Skinny Controllers" patterns to keep Express routing clean. Controller actions are heavily sanitized and strictly return unified JSON structures:
-- **`AuthController.js`**: Orchestrates the multi-layered login. Handles sign-ins, SMTP Nodemailer OTP dispatching, password resets, and token refreshing flows.
-- **`AdminController.js` & `ShopController.js`**: Exclusively restricted to `SuperAdmin` roles for overseeing overall platform health, approving shops, and assessing total SaaS analytics.
-- **`ProductController.js`**: Beyond standard CRUD, this includes streaming `csv-parser` logic for bulk importing hundreds of products (`products_300.csv`), interacting with `Cloudinary` for media, and managing soft deletes.
-- **`TaskController.js`**: RESTful endpoints coupled with Socket.io emitter integrations to instantly notify staff of new task assignments without page reloads.
+### 2. Multi-Tenant Shop Operations
+- **Shop Initialization**: Verified users can register their Shop details (tenant), fully isolated from other ecosystems.
+- **Super Admin Oversight**: A centralized Super Admin (seeded via script) monitors the entire SaaS platform. The Super Admin has the authority to view all shops, approve or restrict them, and monitor global analytical metrics.
+- **Comprehensive RBAC**: Role-Based Access Control powers the entire platform:
+  - *Super Admin*: Platform oversight.
+  - *Shop Owner*: Tenant administration, employee management, shop-specific analytics.
+  - *Manager*: Inventory management, task delegation.
+  - *Employee*: Task execution and limited inventory access.
 
-### 3. Middleware & Security Enforcements (`server/app/middleware`)
-The nervous system of the API's security:
-- **`AuthGuard` (JWT Validation)**: Intercepts requests, validates Bearer tokens via `jsonwebtoken`, handles token expiration caching, and populates `req.user`.
-- **RBAC Validator**: Verifies hierarchical clearance (e.g., ensuring an Employee cannot access Shop Owner analytical endpoints).
-- **File Interceptors (`multer`)**: Strictly types incoming multipart/form-data, validating MIME types and routing image streams directly to Cloudinary or localized `/uploads` depending on environment configuration.
-- **Error Boundaries**: A global centralized error catcher that intercepts MongoDB CastErrors, Duplication Keys, and raw Server exceptions without leaking stack traces.
+### 3. Comprehensive Employee Management & Automated Communications
+- **Employee Onboarding**: Shop Owners and Managers can add Employees to their team. During creation, the system auto-generates a secure password and employee ID.
+- **Welcome Emails**: Upon creation, the system triggers a **Welcome Email** sent directly to the new employee containing their Employee ID, login email, and the auto-generated temporary password, prompting them to log in and change it.
+- **Password Administration**: If an employee loses access, Managers/Owners can force a password reset. This automatically generates a new secure credential and sends a **Password Reset Notification Email** directly to the employee containing the new temporary password.
 
-### 4. Client-Side Engineering (`client/src`)
-Built on React 19 and Vite for phenomenal hot-module replacement and rendering speeds:
-- **State Orchestration (`src/store`)**: completely bypassed React Context rendering bottlenecks by utilizing **Zustand** for atomic, lightning-fast global state slices (User State, Auth State).
-- **Network Pipeline (`src/api`)**: A sophisticated singleton Axios instance featuring automated request/response interceptors. Seamlessly catches 401 Unauthorized errors and attempts silent token refreshes via cookies before forcing a user logout.
-- **Routing Engine (`src/routes`)**: Protected boundaries using `react-router-dom` v7. Routes like `<PrivateRoute>` dynamically assess Zustand auth state and user roles before rendering dashboards or kicking users back to `/login`.
-- **Dynamic UI & Metrics (`src/components` & `src/pages`)**: 
-  - Composed strictly typed components enhanced via `clsx` and `tailwind-merge` preventing layout specificity clashes.
-  - Implemented `react-hook-form` for uncontrolled, re-render-free user inputs.
-  - Integrated `chart.js`, `recharts`, & `react-chartjs-2` to map heavy aggregation pipelines into beautiful, interactive analytical dashboards for the Admin and Shop Owners.
+### 4. Dynamic Inventory & Product Ecosystem
+- **Taxonomy Structure**: Shop Owners can dynamically build their taxonomy by creating Categories and nested Subcategories for intricate product sorting.
+- **Product Operations**: Full CRUD (Create, Read, Update, Delete) capabilities for vast enterprise inventories.
+- **Smart Asset Management**: Images uploaded to products are hosted on **Cloudinary**. When a product is updated with new images or deleted, an asynchronous background event fires to Cloudinary to perform **Garbage Collection**, deleting the old assets to prevent storage bloat.
+- **Soft Deletion**: Products are never hard-deleted immediately. They utilize a "Soft Delete" flag, moving them to a trash bin to retain referential integrity in past analytical data.
+- **Mass CSV Importing**: Instead of manual entry, Shop Owners can bulk-upload inventory via CSV files. The backend utilizes **Node.js Streams (`csv-parser`)** to process thousands of rows asynchronously without blocking the main event loop.
 
----
+### 5. Real-Time Task Delegation
+- **Assignment Workflow**: Managers can create and assign specific inventory tasks to Employees with designated due dates and priority levels.
+- **Instant Email Notifications**: The exact moment a task is assigned, the backend compiles a formatted HTML template and sends a **Task Assignment Email** to the employee, detailing the Task Title, Due Date, and the Assigning Manager.
+- **Live WebSocket Updates**: Utilizing `socket.io`, the task dashboard updates in real-time across all browser sessions. When an employee marks a task as 'In Progress' or 'Completed', the Manager's dashboard reflects the change instantly without requiring a page refresh.
 
-## ✨ Standout Technical Features
-
-### 🛡️ Unrelenting Security Ecosystem
-- **XSS & CSRF Mitigation**: Refresh Tokens are explicitly denied JavaScript DOM access, existing purely in `Secure`, `SameSite=Strict`, `HTTP-Only` cookies.
-- **Brute Force Protection**: API requests are throttled intelligently via `express-rate-limit`.
-- **Data Protection**: HTTP headers are hardened using `helmet`, and NoSQL injection attempts are inherently sanitized through Mongoose strict schemas.
-
-### 🚀 Asynchronous Task & Asset Management
-- **Live Sockets**: The application utilizes `socket.io` for bi-directional communication, ensuring the `Task Management` interface is instantly reactive across multiple browser instances.
-- **Cloudinary Asset Garbage Collection**: Unused, overwritten, or "deleted" product images trigger asynchronous teardown events to Cloudinary, ensuring zero storage bloat over time.
-
-### 📊 Heavy Data Aggregation
-The MongoDB backend isn't just performing `.find()`. It executes dense **Aggregation Pipelines** mapping complex data sets such as User Growth Trajectories, Daily Logins, Category Distributions, and comprehensive Platform Stock Valuations cleanly to the frontend charting software.
+### 6. Heavy Data Aggregation & Analytics
+- **Super Admin Dashboard**: Visualizes platform-wide growth, including User Growth Trajectories, Total Active Shops, and Platform Stock Valuations using dense MongoDB Aggregation pipelines.
+- **Shop Owner Dashboard**: Provides localized analytics such as Category Distributions, Daily Logins, and inventory depletion alerts mapped beautifully via frontend charting software.
 
 ---
 
-## 💻 Full Stack Technology Arsenal
+## 🏗️ System Architecture
 
-### **Frontend layer**
-* **Core:** React (v19.2), Vite (v7.2), React Router v7+
-* **Data Flow:** Zustand (Global State), Axios (Robust interception pipelines)
-* **Styling & UI:** Tailwind CSS (v4.1), clsx & tailwind-merge (Dynamic Class Utility)
-* **Forms & Validation:** React Hook Form (Uncontrolled High-Performance Forms)
-* **Data Visualization:** Chart.js, Recharts, react-chartjs-2
-* **Feedback & Icons:** React Toastify, Lucide-React
+To fully understand the scale of this project, here is a detailed breakdown of the exact engineering standards implemented:
 
-### **Backend micro-layer**
-* **Core:** Node.js (v18+), Express.js (v5.1 for native Promise handling)
-* **Database & ORM:** MongoDB, Mongoose (v8.19)
-* **Authentication:** jsonwebtoken (JWT), bcryptjs
-* **File Handling:** Multer, Multer-Storage-Cloudinary, CSV-Parser (for streaming bulk imports framework)
-* **Security & Utility:** Helmet, express-rate-limit, cors, compression, morgan (Logging)
-* **Communications:** Nodemailer (SMTP OTP Delivery), Socket.io (Realtime)
+### Database Schema & Data Modeling
+- **`User`**: Centralized identity model. Manages roles, hashed passwords (bcrypt), and account verification states (OTP).
+- **`Shop`**: The core multi-tenant entity. Each user/product/task belongs to a specific Shop, ensuring logical data isolation.
+- **`Product`**: Handles massive enterprise inventory. Incorporates smart "Soft Delete" logic.
+- **`Task`**: Powers the real-time project management aspect. Tracks task assignment between managers and employees. 
+- **`AuditLog`**: Security compliance tracker. Automatically records sensitive data modifications and user actions historically.
+
+### Client-Side Engineering
+- **State Orchestration**: Bypassed React Context rendering bottlenecks by utilizing **Zustand** for atomic, lightning-fast global state slices.
+- **Network Pipeline**: A sophisticated singleton Axios instance featuring automated request/response interceptors. Seamlessly catches 401 errors and attempts silent token refreshes.
+- **Dynamic UI**: Composed strictly typed components enhanced via `clsx` and `tailwind-merge`. Implemented `react-hook-form` for uncontrolled, re-render-free user inputs.
 
 ---
 
-## ⚙️ Installation & Setup
+## 💻 Tech Stack
 
-### Requirements
-* Node.js `v18.x` or higher
-* MongoDB server (Local instance or Atlas Cluster)
-* Valid SMTP Provider (e.g., Gmail App Password) for system emails
+### Frontend
+- **Framework**: React 19.2, Vite 7.2
+- **Routing**: React Router v7
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS v4.1, clsx, tailwind-merge
+- **Data Visualization**: Chart.js, Recharts, react-chartjs-2
+- **Forms**: React Hook Form
+- **HTTP Client**: Axios
 
-### 1. Repository Instantiation
+### Backend
+- **Runtime**: Node.js (v18+)
+- **Framework**: Express.js (v5.1 native Promises)
+- **Database**: MongoDB, Mongoose (v8.19)
+- **Authentication**: JWT, bcryptjs
+- **Real-Time**: Socket.io
+- **File Uploads**: Multer, Cloudinary
+- **Utilities**: CSV-Parser (bulk imports), Nodemailer (SMTP), Winston & Morgan (Logging)
+- **Security**: Helmet, express-rate-limit, cors
+
+---
+
+## 📸 Project Screenshots
+
+<p align="center">
+  <img src="./client/public/Inventory.png" alt="Inventory Dashboard" width="80%">
+</p>
+<p align="center">
+  <img src="./client/public/inventoryadmin.jpg" alt="Admin Dashboard" width="80%">
+</p>
+<p align="center">
+  <img src="./client/public/Inventory2.jpg" alt="Product Management" width="48%">
+  <img src="./client/public/Inventory3.jpg" alt="Task Management" width="48%">
+</p>
+
+*(Screenshots reside in `/client/public/`)*
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+- Node.js `v18.x` or higher
+- MongoDB server (Local instance or Atlas Cluster)
+- Valid SMTP Provider (e.g., Gmail App Password) for system emails
+- Cloudinary Account (for image management)
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/SubhradeepNathGit/StoreSync.git
 cd StoreSync
 ```
 
-### 2. Backend Bootstrapping
+### 2. Backend Setup
 ```bash
 cd server
 npm install
 ```
 
-Create a deeply secure `.env` file in the `/server` directory:
+### 3. Frontend Setup
+Open a new terminal in the project root:
+```bash
+cd client
+npm install
+```
+
+---
+
+## 🔐 Environment Variables
+
+### Server (`/server/.env`)
+Create a `.env` file in the `/server` directory:
+
 ```env
+# Server Configuration
 PORT=3006
-MONGO_URI=mongodb+srv://<auth>@cluster.mongodb.net/storesync
+CLIENT_URL=http://localhost:5173
+
+# Database
+MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/storesync
+
+# Authentication Secrets
 JWT_SECRET=your_ultra_secure_64byte_secret
 JWT_REFRESH_SECRET=your_isolated_refresh_secret
 
-# SMTP Server Configurations for automated OTP routing
+# SMTP Server Configurations (OTP routing)
 EMAIL_USER=your_verified_service_email@gmail.com
 EMAIL_PASS=your_gmail_app_password
 
-# Cloudinary Setup
+# Cloudinary Setup (Asset Management)
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_secret
 
-# Client CORS Routing
-CLIENT_URL=http://localhost:5173
+# Super Admin Credentials
+SUPER_ADMIN_EMAIL=your_admin_email@example.com
+SUPER_ADMIN_PASSWORD=your_secure_password
 ```
-Start the localized development runtime:
+
+### Applying Super Admin Credentials
+To apply or update the Super Admin credentials in the database, ensure your `.env` file has the `SUPER_ADMIN_EMAIL` and `SUPER_ADMIN_PASSWORD` variables set, then run the seeding script:
+
 ```bash
+cd server
+node seed-super-admin.js
+```
+
+### Running the Application
+Start both the client and server concurrently (requires two terminal windows).
+
+**Terminal 1 (Backend):**
+```bash
+cd server
 npm run dev
 ```
 
-### 3. Frontend Instantiation
-Open a new terminal session securely anchored in the project root:
+**Terminal 2 (Frontend):**
 ```bash
 cd client
-npm install
 npm run dev
 ```
 
 ---
 
-## 📈 Future Roadmaps / Extensibility
-* Transitioning strictly towards Typescript architectures to fortify endpoint data-contracting.
-* Integrating Redis logic layers to cache exhaustive analytical DB queries globally.
-* Developing comprehensive Test-Driven parameters using Jest & Cypress.
-* Containerization using Docker to standardize platform deployment methodologies utilizing Kubernetes auto-scaling infrastructures.
+## 🌐 API Overview
+
+The backend exposes a highly structured RESTful API. Below is a high-level overview of the main route modules:
+
+- **`/api/auth`**: Registration, Login, Logout, Token Refresh, OTP verification, Password Reset.
+- **`/api/admin`**: SuperAdmin-only routes for platform analytics, shop approvals, and global user management.
+- **`/api/shop`**: Shop creation, shop settings, and tenant-specific configurations.
+- **`/api/product`**: CRUD operations, soft deletes, image uploads (Cloudinary), and bulk CSV streaming.
+- **`/api/category` & `/api/subcategory`**: Taxonomy management for shop inventories.
+- **`/api/task`**: Real-time task delegation with WebSocket event emitting.
+- **`/api/employee`**: Shop-specific employee management and role assignments.
 
 ---
+
+## 📈 Future Roadmaps
+
+- [ ] **TypeScript Migration**: Transitioning strictly towards Typescript architectures to fortify endpoint data-contracting.
+- [ ] **Caching Layer**: Integrating Redis logic layers to cache exhaustive analytical DB queries globally.
+- [ ] **Testing Suite**: Developing comprehensive Test-Driven parameters using Jest & Cypress.
+- [ ] **Containerization**: Implementing Docker to standardize platform deployment methodologies utilizing Kubernetes auto-scaling infrastructures.
+
+---
+
+## 👨‍💻 Author
 
 <p align="center">
   <b>Designed, engineered, and scaled by Subhradeep Nath.</b><br>

@@ -14,10 +14,13 @@ const seedSuperAdmin = async () => {
         });
 
         
+        const adminEmail = process.env.SUPER_ADMIN_EMAIL || 'subhradeepnath2.o@gmail.com';
+        const adminPassword = process.env.SUPER_ADMIN_PASSWORD || 'Admin@123';
+
         const adminData = {
-            name: 'Super Admin',
-            email: 'subhradeepnath2.o@gmail.com',
-            password: process.env.SUPER_ADMIN_PASSWORD || 'Admin@123',
+            name: 'StoreSync Admin',
+            email: adminEmail,
+            password: adminPassword,
             role: 'super_admin',
             isActive: true,
             isVerified: true
@@ -28,8 +31,8 @@ const seedSuperAdmin = async () => {
         await User.create(adminData);
 
         console.log('Super Admin created/updated successfully!');
-        console.log('Email: subhradeepnath2.o@gmail.com');
-        console.log(`Password: ${process.env.SUPER_ADMIN_PASSWORD || 'Admin@123'}`);
+        console.log(`Email: ${adminEmail}`);
+        console.log(`Password: ${adminPassword}`);
         process.exit(0);
     } catch (error) {
         console.error('Failed to seed Super Admin:', error);
