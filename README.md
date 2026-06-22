@@ -28,7 +28,7 @@
 <p align="center">
   <img src="./client/public/Banner-4.png" width="32%">
   <img src="./client/public/Banner-5.png" width="32%">
-  <img src="./client/public/Banner-9.jpg" width="32%">
+  <img src="./client/public/Banner-10.jpg" width="32%">
 </p>
 <p align="center">
   <img src="./client/public/Banner-6.png" height="350">
@@ -36,13 +36,13 @@
   <img src="./client/public/Banner-8.png" height="350">
 </p>
 <p align="center">
-  <img src="./client/public/Banner-10.jpg" width="32%">
+  <img src="./client/public/Banner-14.jpg" width="32%">
+  <img src="./client/public/Banner-9.png" width="32%">
   <img src="./client/public/Banner-11.png" width="32%">
-  <img src="./client/public/Banner-12.png" width="32%">
 </p>
 <p align="center">
+  <img src="./client/public/Banner-12.png" width="32%">
   <img src="./client/public/Banner-13.png" width="32%">
-  <img src="./client/public/Banner-14.png" width="32%">
   <img src="./client/public/Banner-15.png" width="32%">
 </p>
 
@@ -258,6 +258,8 @@ The backend provides a structured RESTful API. Below is a high-level overview of
 
 ## Author
 
-<p align="center">
-  <b>Created by Subhradeep Nath.</b>
-</p>
+**Subhradeep Nath**  
+*Full Stack Software Engineer*
+
+- **GitHub:** [SubhradeepNathGit](https://github.com/SubhradeepNathGit)
+- **LinkedIn:** [Subhradeep Nath](https://www.linkedin.com/in/subhradeep-nath/)
