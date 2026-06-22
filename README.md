@@ -28,12 +28,12 @@
 <p align="center">
   <img src="./client/public/Banner-4.png" width="32%">
   <img src="./client/public/Banner-5.png" width="32%">
-  <img src="./client/public/Banner-6.png" width="32%">
+  <img src="./client/public/Banner-9.jpg" width="32%">
 </p>
 <p align="center">
+  <img src="./client/public/Banner-6.png" width="32%">
   <img src="./client/public/Banner-7.png" width="32%">
   <img src="./client/public/Banner-8.png" width="32%">
-  <img src="./client/public/Banner-9.jpg" width="32%">
 </p>
 <p align="center">
   <img src="./client/public/Banner-10.jpg" width="32%">
